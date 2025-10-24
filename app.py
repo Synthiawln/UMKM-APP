@@ -113,7 +113,7 @@ if uploaded_file is not None:
     kuliner_data = pd.read_excel(uploaded_file, sheet_name="UKM Kuliner")
     st.sidebar.success("✅ Dataset berhasil diupload!")
 else:
-    kuliner_data = pd.read_excel("C:/UMKM_CODING/Data Set UMKM.xlsx", sheet_name="UKM Kuliner")
+    kuliner_data = pd.read_excel("Data Set UMKM.xlsx", sheet_name="UKM Kuliner")
     st.sidebar.info("📂 Menggunakan dataset bawaan dari folder.")
 
     

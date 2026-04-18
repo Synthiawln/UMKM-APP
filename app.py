@@ -271,8 +271,8 @@ elif menu == "🔎 Hasil Analisis":
     eval_df = pd.DataFrame({
         'Metode': ['KMeans', 'GWO-KMeans'],
         'SSE': [round(sse_kmeans, 4), round(sse_gwo, 4)],
-        'Silhouette': [round(sil_kmeans, 4) if not np.isnan(sil_kmeans) else "NA",
-                       round(sil_gwo, 4) if not np.isnan(sil_gwo) else "NA"]
+        # 'Silhouette': [round(sil_kmeans, 4) if not np.isnan(sil_kmeans) else "NA",
+        #               round(sil_gwo, 4) if not np.isnan(sil_gwo) else "NA"]
     })
     st.subheader("Perbandingan Evaluasi Klaster")
     st.dataframe(eval_df)

@@ -586,13 +586,13 @@ elif menu == "🔎 Hasil Analisis":
     with tab2:
         st.subheader("Perbandingan Evaluasi Klaster (KMeans vs GWO-KMeans vs ACO-KMeans)")
 
-        eval_df = pd.DataFrame({
-            'Metode': ['KMeans (Standard)', 'GWO murni (pre-KMeans)', 'GWO-KMeans (post)',
-                       'ACO murni (pre-KMeans)', 'ACO-KMeans (post)'],
-            'SSE': [round(result["sse_kmeans"], 4), round(result["sse_gwo_raw"], 4),
-                    round(result["sse_gwo"], 4), round(result["sse_aco_raw"], 4), round(result["sse_aco"], 4)]
-        })
-        st.dataframe(eval_df, use_container_width=True)
+        # eval_df = pd.DataFrame({
+        #     'Metode': ['KMeans (Standard)', 'GWO murni (pre-KMeans)', 'GWO-KMeans (post)',
+        #                'ACO murni (pre-KMeans)', 'ACO-KMeans (post)'],
+        #     'SSE': [round(result["sse_kmeans"], 4), round(result["sse_gwo_raw"], 4),
+        #             round(result["sse_gwo"], 4), round(result["sse_aco_raw"], 4), round(result["sse_aco"], 4)]
+        # })
+        # st.dataframe(eval_df, use_container_width=True)
 
         eval_summary = pd.DataFrame({
             'Metode': metode,

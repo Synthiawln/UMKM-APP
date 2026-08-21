@@ -448,11 +448,8 @@ st.sidebar.caption("Aplikasi otomatis membaca dataset bawaan dari repo. Upload o
 uploaded_file = st.sidebar.file_uploader("Ganti dataset (opsional)", type=["xlsx"])
 
 try:
-    kuliner_data_raw = load_raw_data(uploaded_file)
-    if uploaded_file is not None:
-        st.sidebar.success("✅ Menggunakan dataset yang kamu upload.")
-    else:
-        st.sidebar.info(f"📂 Menggunakan dataset bawaan: `{DEFAULT_DATA_PATH}`")
+    kuliner_data_raw = load_raw_data()
+    st.sidebar.info(f"📂 Menggunakan dataset bawaan: `{DEFAULT_DATA_PATH}`")
 except FileNotFoundError as e:
     st.sidebar.error(str(e))
     st.error(str(e))

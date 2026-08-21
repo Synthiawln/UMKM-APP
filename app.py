@@ -444,8 +444,7 @@ dan **Ant Colony Optimization (ACO)** sebagai pembanding, agar segmen UMKM lebih
 """)
 
 st.sidebar.subheader("Dataset")
-st.sidebar.caption("Aplikasi otomatis membaca dataset bawaan dari repo. Upload opsional untuk mencoba dataset lain.")
-uploaded_file = st.sidebar.file_uploader("Ganti dataset (opsional)", type=["xlsx"])
+st.sidebar.caption("Aplikasi otomatis membaca dataset bawaan dari repo.")
 
 try:
     kuliner_data_raw = load_raw_data()

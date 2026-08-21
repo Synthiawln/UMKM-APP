@@ -638,18 +638,18 @@ elif menu == "🔎 Hasil Analisis":
         )
         st.pyplot(fig_pca)
 
-        st.markdown("<h4 style='text-align: center;'>Pendidikan vs Omset — GWO-KMeans</h4>",
-                    unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            fig2, ax2 = plt.subplots(figsize=(5, 3))
-            sns.scatterplot(x=data_scaled_df['Pendidikan'], y=data_scaled_df['Omset'],
-                             hue=gwo_labels, palette='Set2', s=60, legend='brief', ax=ax2)
-            centroids = result["gwo_centroids"]
-            ax2.scatter(centroids[:, 1], centroids[:, 2], c='red', s=150, marker='X', label='Centroid')
-            ax2.set_title("Pendidikan vs Omset (GWO-KMeans)", fontsize=11)
-            ax2.legend()
-            st.pyplot(fig2)
+        # st.markdown("<h4 style='text-align: center;'>Pendidikan vs Omset — GWO-KMeans</h4>",
+        #             unsafe_allow_html=True)
+        # col1, col2, col3 = st.columns([1, 2, 1])
+        # with col2:
+        #     fig2, ax2 = plt.subplots(figsize=(5, 3))
+        #     sns.scatterplot(x=data_scaled_df['Pendidikan'], y=data_scaled_df['Omset'],
+        #                      hue=gwo_labels, palette='Set2', s=60, legend='brief', ax=ax2)
+        #     centroids = result["gwo_centroids"]
+        #     ax2.scatter(centroids[:, 1], centroids[:, 2], c='red', s=150, marker='X', label='Centroid')
+        #     ax2.set_title("Pendidikan vs Omset (GWO-KMeans)", fontsize=11)
+        #     ax2.legend()
+        #     st.pyplot(fig2)
 
     # ---------- TAB 4: UJI STATISTIK FRIEDMAN ----------
     with tab4:

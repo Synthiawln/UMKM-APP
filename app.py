@@ -692,27 +692,20 @@ elif menu == "🔎 Hasil Analisis":
 
     # ---------- TAB 5: PROFIL CLUSTER ----------
     with tab5:
-        st.subheader("Profil Cluster")
-        label_source = st.radio(
-            "Gunakan label cluster dari:",
-            ["GWO-KMeans (sesuai tujuan penelitian)", "KMeans Standard"],
-            horizontal=True
-        )
-        chosen_labels = gwo_labels if label_source.startswith("GWO") else kmeans_labels
+        st.subheader("Profil Cluster (GWO-KMeans)")
         st.caption(
-            "Catatan: di notebook Colab, bagian profil cluster memakai variabel `kmeans_labels` "
-            "meski komentarnya menyebut 'GWO-KMeans' — ini tampaknya salah penamaan variabel. "
-            "Default di sini memakai label GWO-KMeans sesuai tujuan penelitian; kamu bisa ganti "
-            "ke KMeans Standard di atas kalau ingin menyamai persis output asli notebook."
+            "Profil, distribusi, dan contoh data di bawah ini menggunakan hasil **GWO-KMeans** — "
+            "metode utama yang dioptimasi pada penelitian ini."
         )
-
+        chosen_labels = gwo_labels
+ 
         profile_df = data_scaled_df.copy()
         profile_df['cluster'] = chosen_labels
-
+ 
         st.markdown("#### Rata-rata Tiap Cluster")
         cluster_mean = profile_df.groupby('cluster').mean()
         st.dataframe(cluster_mean.round(3), use_container_width=True)
-
+ 
         col1, col2, col3 = st.columns([1, 3, 1])
         with col2:
             fig_mean, ax_mean = plt.subplots(figsize=(9, 5))
@@ -724,17 +717,17 @@ elif menu == "🔎 Hasil Analisis":
             ax_mean.grid()
             plt.xticks(rotation=45)
             st.pyplot(fig_mean)
-
+ 
         st.markdown("#### Distribusi Jumlah Data per Cluster")
         fig_dist, labels_d, sizes_d, persentase_d, total_d = plot_cluster_distribution(profile_df['cluster'])
         st.pyplot(fig_dist)
-
+ 
         summary_dist = pd.DataFrame({
             "Cluster": labels_d, "Jumlah": sizes_d,
             "Persentase": [f"{p:.1f}%" for p in persentase_d]
         })
         st.dataframe(summary_dist, use_container_width=True)
-
+ 
         st.markdown("#### Contoh Data Asli Tiap Cluster")
         kuliner_hasil = kuliner_enc.copy()
         kuliner_hasil['cluster'] = chosen_labels
@@ -749,7 +742,8 @@ elif menu == "🔎 Hasil Analisis":
                 kuliner_hasil[kuliner_hasil['cluster'] == c][kolom_asli].head(5).reset_index(drop=True),
                 use_container_width=True
             )
-
+ 
     st.markdown("---")
     st.markdown("<p style='text-align:center; color:gray;'>© 2025 Aplikasi Analisis UMKM Kuliner</p>",
                 unsafe_allow_html=True)
+ 

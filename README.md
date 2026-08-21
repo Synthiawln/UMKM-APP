@@ -2,7 +2,7 @@
 ### Clone
   ```
    bash
-   git clone https://github.com/USERNAME/UMKM-APP.git
+   git clone https://github.com/Synthiawln/UMKM-APP.git
    cd WebsitePredictionsEPL
   ```
 ### Requirements

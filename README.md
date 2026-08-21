@@ -3,7 +3,7 @@
   ```
    bash
    git clone https://github.com/Synthiawln/UMKM-APP.git
-   cd WebsitePredictionsEPL
+   cd UMKM-APP
   ```
 ### Requirements
 
